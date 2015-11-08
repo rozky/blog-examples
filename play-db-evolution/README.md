@@ -11,14 +11,17 @@ To simulate rollback I need at least 2 versions and each creating a table in db.
 2nd on `rback-ev2`.   
 
 Steps:
-    1. checkout `rback-ev1`
-    2. run it `activator clean start` - this should create 'people' table
-    3. stop it and check that tables has been created (see below 'List existing tables in the database')
-    4. checkout `rback-ev2`
-    5. run it `activator clean start` - this should create 'company' table
+ 1. checkout `rback-ev1`
+ 2. run it `activator clean start` - this should create 'people' table
+ 3. stop it and check that tables has been created, see [List tables in the database](#list-tables-in-the-database)
+ 4. checkout `rback-ev2`
+ 5. run it `activator clean start` - this should create 'company' table
+ 6. stop it and check that tables has been created, see [List tables in the database](#list-tables-in-the-database)
+ 7. checkout `rback-ev1`
+ 8. run it `activator clean start` - this should rollback 'company' table
+ 9. stop it and check that tables has been created, see [List tables in the database](#list-tables-in-the-database)
 
-
-### List existing tables in the database
+### List tables in the database
 
 ```
 java -cp ~/.ivy2/cache/com.h2database/h2/jars/h2-1.4.187.jar  org.h2.tools.Shell -sql "show tables" -url "jdbc:h2:~/tmp/h2db/test-rollback"
