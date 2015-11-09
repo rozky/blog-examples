@@ -13,13 +13,14 @@ To simulate rollback I need at least 2 versions and each creating a table in db.
 Steps:
  1. checkout `rback-ev1`
  2. run it `activator clean start` - this should create 'people' table
- 3. stop it and check that tables has been created, see [List tables in the database](#list-tables-in-the-database)
+ 3. stop it and check that 'people' table has been created, see [List tables in the database](#list-tables-in-the-database)
  4. checkout `rback-ev2`
  5. run it `activator clean start` - this should create 'company' table
- 6. stop it and check that tables has been created, see [List tables in the database](#list-tables-in-the-database)
+ 6. stop it and check that 'company' table has been created, see [List tables in the database](#list-tables-in-the-database)
  7. checkout `rback-ev1`
  8. run it `activator clean start` - this should rollback 'company' table
- 9. stop it and check that tables has been created, see [List tables in the database](#list-tables-in-the-database)
+ 9. stop it and check that 'company' table has been created, see [List tables in the database](#list-tables-in-the-database)
+ 10. repeat steps 4, 5, 6 to check that it's possible to release what was rolled back 
 
 ### List tables in the database
 
